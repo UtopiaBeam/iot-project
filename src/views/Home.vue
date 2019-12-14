@@ -8,7 +8,7 @@
           <th class="w-1/3 px-2 py-2"></th>
         </tr>
       </thead>
-      <tbody v-if="lockers">
+      <tbody>
         <tr v-for="(locker, index) of lockers" :key="index" class="border">
           <td class="w-1/3 px-2 py-2 text-center">{{ locker.name }}</td>
           <td class="w-1/3 px-2 py-2 text-center">{{ locker.isLocked ? 'Locked' : 'Unlocked' }}</td>
@@ -21,10 +21,8 @@
             />
           </td>
         </tr>
-      </tbody>
-      <tbody v-else>
-        <tr class="border">
-          <td class="w-full px-2 py-3 text-center">No lockers</td>
+        <tr v-if="lockers.length === 0">
+          <td colspan="3" class="w-full px-2 py-2 text-center text-gray-500 italic">No locker</td>
         </tr>
       </tbody>
     </table>
