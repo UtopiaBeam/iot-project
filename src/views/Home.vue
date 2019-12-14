@@ -11,7 +11,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import 'firebase/database';
+import 'firebase/firestore';
 
 @Component
 export default class Home extends Vue {
