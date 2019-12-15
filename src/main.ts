@@ -9,15 +9,7 @@ Vue.config.productionTip = false;
 
 let app: Vue | null = null;
 
-const firebaseConfig = {
-  apiKey: 'AIzaSyBeBGXc0Rm6Ep2mJU18Sl3_ItGv9f2QnW0',
-  authDomain: 'iot-yam.firebaseapp.com',
-  databaseURL: 'https://iot-yam.firebaseio.com',
-  projectId: 'iot-yam',
-  storageBucket: 'iot-yam.appspot.com',
-  messagingSenderId: '291931611153',
-  appId: '1:291931611153:web:b86190b4668a16a5e011b0',
-};
+const firebaseConfig = JSON.parse(process.env.VUE_APP_FIREBASE_CONFIG);
 
 firebase.initializeApp(firebaseConfig);
 
