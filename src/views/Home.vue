@@ -54,7 +54,7 @@ interface Locker {
 })
 export default class Home extends Vue {
   private readonly db = firebase.firestore();
-  private readonly loggerRef = this.db.collection('log');
+  private readonly loggerRef = this.db.collection('logger');
   private readonly lockerRef = this.db.collection('locker');
   private readonly user = firebase.auth().currentUser;
   private lockers: Locker[] = [];
@@ -70,6 +70,11 @@ export default class Home extends Vue {
 
   private async toggle(id: string, isLocked: boolean, index: number) {
     await this.lockerRef.doc(id).update({ isLocked });
+    await this.loggerRef.add({
+      timestamps: Date.now(),
+      user: this.user!.uid,
+      action: isLocked ? 'lock' : 'unlock',
+    });
     this.lockers[index].isLocked = isLocked;
   }
 
