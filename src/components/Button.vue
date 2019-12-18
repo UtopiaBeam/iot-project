@@ -6,9 +6,10 @@
   >Unlock</button>
   <button
     v-else
-    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded"
+    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed"
     @click="toggle"
-  >Lock</button>
+    disabled
+  >Unlock</button>
 </template>
 
 <script lang="ts">
